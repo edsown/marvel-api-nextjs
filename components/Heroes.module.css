@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+}
+.container:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+.text {
+  position: relative;
+  bottom: 50%;
+  color: whitesmoke;
+  text-align: center;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.tcontainer {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+  height: 20%;
+  bottom: 0;
+}
+.tcontainer:hover {
+  background-color: cornflowerblue;
+}

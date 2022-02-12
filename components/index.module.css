@@ -1,0 +1,9 @@
+.container {
+  max-width: 40rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
