@@ -13,10 +13,10 @@
 }
 .text {
   position: relative;
-  bottom: 30%;
+  bottom: 50%;
   color: whitesmoke;
   text-align: center;
-  overflow-wrap: break-word;
+  overflow-wrap: hidden;
   hyphens: auto;
 }
 
@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   background-color: #374151;
-  height: 15%;
+  height: 50px;
   bottom: 0;
 }
 .tcontainer:hover {

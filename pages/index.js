@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getSortedPostsData } from "./api/characters";
+import { getCharacters } from "./api/characters";
 import Heroes from "../components/Heroes";
 import styles from "../components/index.module.css";
 
 var offset = 0;
 export async function getStaticProps() {
-  const allComicsData = await getSortedPostsData(50);
+  const allComicsData = await getCharacters(0);
 
   return {
     props: {
