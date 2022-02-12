@@ -1,7 +1,6 @@
 .container {
   position: relative;
   border-radius: 3px;
-
   border-collapse: separate;
   overflow: hidden;
 }

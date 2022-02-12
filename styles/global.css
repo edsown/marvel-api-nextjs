@@ -9,14 +9,13 @@ body {
   background: linear-gradient(
     180deg,
     rgba(15, 23, 42, 1) 0%,
-    rgba(31, 41, 55, 1) 44%,
+    rgba(31, 41, 55, 1) 20%,
     rgba(15, 23, 42, 1) 100%
   );
 }
 h1 {
   text-align: center;
   color: #f1f5f9;
-  font-weight: ;
 }
 * {
   box-sizing: border-box;
