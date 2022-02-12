@@ -1,13 +1,19 @@
 .container {
   position: relative;
+  border-radius: 3px;
+
+  border-collapse: separate;
+  overflow: hidden;
 }
 .container:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  border-radius: 10px;
+  border-collapse: separate;
   transition: 0.3s;
 }
 .text {
   position: relative;
-  bottom: 50%;
+  bottom: 30%;
   color: whitesmoke;
   text-align: center;
   overflow-wrap: break-word;
@@ -20,10 +26,10 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  background-color: cadetblue;
-  height: 20%;
+  background-color: #374151;
+  height: 15%;
   bottom: 0;
 }
 .tcontainer:hover {
-  background-color: cornflowerblue;
+  background-color: #1f2937;
 }

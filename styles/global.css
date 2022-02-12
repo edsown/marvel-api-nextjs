@@ -2,13 +2,22 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
-  background-color: black;
-}
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 
+  line-height: 1.6;
+  font-size: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(31, 41, 55, 1) 44%,
+    rgba(15, 23, 42, 1) 100%
+  );
+}
+h1 {
+  text-align: center;
+  color: #f1f5f9;
+  font-weight: ;
+}
 * {
   box-sizing: border-box;
 }

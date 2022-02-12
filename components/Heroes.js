@@ -6,7 +6,7 @@ function Heroes(props) {
     <div className={styles.container}>
       <img src={props.source}></img>
       <div className={styles.tcontainer}>
-        <h5 className={styles.text}>{props.name}</h5>
+        <h4 className={styles.text}>{props.name}</h4>
       </div>
     </div>
   );

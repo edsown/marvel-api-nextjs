@@ -19,17 +19,21 @@ export default function Home({ allComicsData }) {
   return (
     <div>
       <div>
-        <h1>Character name: </h1>
+        <h1>Marvel Labs</h1>
         <div className={styles.container}>
           {allComicsData.map((comic) => (
             <>
               <Heroes
                 name={comic.name}
-                source={`${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`}
+                source={
+                  comic.thumbnail.path !==
+                  "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+                    ? `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`
+                    : "/images/marvel-cover.jpg"
+                }
               />
             </>
           ))}
-          ´
         </div>
       </div>
     </div>
