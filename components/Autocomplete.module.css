@@ -3,7 +3,7 @@
   padding: 8px;
   width: 300px;
 }
-.no-autocomplete {
+.noautocomplete {
   color: #999;
   padding: 8px;
 }
@@ -12,17 +12,20 @@
   border-top-width: 0;
   list-style: none;
   margin-top: 0;
-  max-height: 143px;
+  max-height: 200px;
   overflow-y: auto;
   padding-left: 0;
   width: calc(300px + 1rem);
 }
 .autocomplete li {
   padding: 8px;
+  color: white;
+  background-color: #6b7280;
 }
 .autocomplete > .active,
 .autocomplete li:hover {
-  background-color: darkgray;
+  background-color: whitesmoke;
+  color: black;
   cursor: pointer;
   font-weight: 700;
 }
