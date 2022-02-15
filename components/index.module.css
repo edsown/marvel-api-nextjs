@@ -1,7 +1,7 @@
 .container {
   max-width: 60rem;
   padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 2rem auto 6rem;
   display: flex;
 
   justify-content: center;
@@ -9,7 +9,64 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 0vw;
+  padding-top: 2vw;
+  padding-bottom: 1rem;
 
+  align-items: center;
+}
 .logo {
   height: 50px;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+.navlink {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.navlink:hover {
+  color: #e23636;
+}
+
+@media (max-width: 768px) {
+  .bar > div > div > div {
+    font-size: 0.8rem;
+  }
+  .container {
+    max-width: 30rem;
+  }
+  .bar {
+    width: 87vw;
+    margin-bottom: -1rem;
+  }
+}
+
+.bar {
+  min-width: 67vw;
+  margin-bottom: -1rem;
+}
+.bar > div {
+  cursor: text;
+  background-color: rgb(1, 7, 19);
+}
+
+.bar > div > div > div {
+  color: #64748b;
+}
+
+.bigcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select {
+  color: blue;
 }

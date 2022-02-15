@@ -1,0 +1,74 @@
+.container {
+  position: relative;
+  border-radius: 5px;
+  border-collapse: separate;
+  overflow: hidden;
+  cursor: pointer;
+  border: transparent solid;
+}
+.container:hover {
+  transform: scale(1.05);
+  border-radius: 10px;
+  border-collapse: separate;
+  transition: 0.2s;
+  border: whitesmoke solid;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 6.6rem;
+  }
+  .container:hover {
+    transform: none;
+  }
+
+  .text {
+    font-size: 0.55rem;
+  }
+}
+.text {
+  position: relative;
+
+  color: whitesmoke;
+  text-align: center;
+  overflow-wrap: hidden;
+  hyphens: auto;
+  font-weight: 400;
+}
+
+.tcontainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #374151;
+  height: 15%;
+  bottom: 0;
+}
+.tcontainer:hover {
+  background-color: #e23636;
+  transition: 0.2s;
+}
+
+.button {
+  color: black;
+  background-color: #374151;
+  font-family: "Voltaire", sans-serif;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 5rem;
+
+  border: transparent solid;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+.button:hover {
+  color: black;
+  background-color: #e23636;
+  border: whitesmoke solid;
+  transition: 0.2s;
+}

@@ -13,14 +13,3 @@ export async function getCharacters() {
   const data = await res.json();
   return data.data.results;
 }
-export async function getNameStartsWith(name) {
-  const res = await fetch(
-    `http://gateway.marvel.com/v1/public/characters?${key}&nameStartsWith=${name}`
-  );
-  const suggestionData = [];
-  const data = await res.json();
-  const dataObj = await data.data.results;
-  dataObj.map((obj) => suggestionData.push(obj.name));
-
-  return suggestionData;
-}
