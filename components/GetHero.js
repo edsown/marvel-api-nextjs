@@ -11,17 +11,21 @@ import styles from "../components/GetHero.module.css";
 
 function GetHero(props) {
   const [characters, setCharacters] = useState([]);
-
+  const [loading, setLoading] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(false);
   useEffect(() => {
     async function getCharacters() {
       try {
-        const response = await axios.get(
-          `http://gateway.marvel.com/v1/public/characters?${key}&orderBy=${
-            props.sortBy
-          }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
-        );
+        const response = await axios
+          .get(
+            `http://gateway.marvel.com/v1/public/characters?${key}&orderBy=${
+              props.sortBy
+            }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
+          )
+          .then(setLoading(true));
 
         setCharacters(response.data.data.results);
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -33,13 +37,17 @@ function GetHero(props) {
   const getMore = useCallback(async () => {
     try {
       const offset = characters.length;
-      const response = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters?${key}&offset=${offset}&orderBy=${
-          props.sortBy
-        }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
-      );
+      const response = await axios
+        .get(
+          `http://gateway.marvel.com/v1/public/characters?${key}&offset=${offset}&orderBy=${
+            props.sortBy
+          }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
+        )
+        .then(setLoadingMore(true));
 
       await setCharacters([...characters, ...response.data.data.results]);
+
+      setLoadingMore(false);
     } catch (err) {
       console.log("erro", err);
     }
@@ -47,28 +55,36 @@ function GetHero(props) {
 
   return (
     <>
-      {characters.map((character) => (
-        <>
-          <Link href={"/placeholder"}>
-            <div className={styles.container}>
-              <img
-                src={
-                  character.thumbnail.path !==
-                  "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
-                    ? `${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`
-                    : "/images/marvel-cover.jpg" // Se não tiver capa, colocar capa personalizada que eu fiz
-                }
-              ></img>
-              <div className={styles.tcontainer}>
-                <h5 className={styles.text}>{character.name}</h5>
+      {loading ? (
+        <h2>Loading Characters</h2>
+      ) : (
+        characters.map((character) => (
+          <>
+            <Link href={"/placeholder"}>
+              <div className={styles.container}>
+                <img
+                  src={
+                    character.thumbnail.path !==
+                    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+                      ? `${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`
+                      : "/images/marvel-cover.jpg" // Se não tiver capa, colocar capa personalizada que eu fiz
+                  }
+                ></img>
+                <div className={styles.tcontainer}>
+                  <h5 className={styles.text}>{character.name}</h5>
+                </div>
               </div>
-            </div>
-          </Link>
-        </>
-      ))}
-      <button className={styles.button} onClick={getMore}>
-        <h2>Load More</h2>
-      </button>
+            </Link>
+          </>
+        ))
+      )}
+      {loadingMore ? (
+        <h2>Loading More</h2>
+      ) : (
+        <button className={styles.button} onClick={getMore}>
+          <h2>Load More</h2>
+        </button>
+      )}
     </>
   );
 }

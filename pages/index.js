@@ -29,7 +29,9 @@ export default function Home({ allComicsData }) {
   const [select, setSelect] = useState("");
 
   const handleInputChange = (value) => {
-    setInputValue(value);
+    if (value) {
+      setInputValue(value);
+    }
 
     console.log(inputValue);
   };
