@@ -1,4 +1,3 @@
-import { getCharacters } from "./api/characters";
 import { useState } from "react";
 import GetHero from "../components/GetHero";
 import styles from "../components/index.module.css";
@@ -6,24 +5,13 @@ import AsyncSelect from "react-select/async";
 import Link from "next/link";
 import Head from "next/head";
 import md5 from "md5";
-const publicKey = "ea3f84e8fb89a49e96db6db00d192540";
-const privateKey = "1be47688b8609c33a5f77a6acce22635334ebf58";
+const publicKey = "eca622d4ab963d8f9b56c9f3c38066db";
+const privateKey = "eb16ea813f8b07a4c312fcccb371982f0f636366";
 const ts = Number(new Date());
 const hash = md5(ts + privateKey + publicKey);
 const key = `&apikey=${publicKey}&hash=${hash}&ts=${ts}`;
-let searchInput = "";
 
-export async function getStaticProps() {
-  const allComicsData = await getCharacters();
-
-  return {
-    props: {
-      allComicsData,
-    },
-  };
-}
-
-export default function Home({ allComicsData }) {
+export default function Home({}) {
   const [inputValue, setInputValue] = useState("");
   const [selectedValue, setSelectedValue] = useState(null);
   const [select, setSelect] = useState("");
@@ -41,7 +29,9 @@ export default function Home({ allComicsData }) {
 
   const handleLoad = (inputValue) =>
     fetch(
-      `http://gateway.marvel.com/v1/public/characters?${key}&nameStartsWith=${inputValue}`
+      `http://gateway.marvel.com/v1/public/characters?${key}${
+        inputValue == "" ? "" : "&nameStartsWith=" + inputValue
+      }`
     )
       .then((data) => data.json())
       .then((results) => {
@@ -79,6 +69,7 @@ export default function Home({ allComicsData }) {
 
       <div className={styles.bigcontainer}>
         <AsyncSelect
+          instanceId={"id"}
           className={styles.bar}
           defaultOptions={true}
           placeholder={"Search Character"}
@@ -99,13 +90,14 @@ export default function Home({ allComicsData }) {
           <br></br>
           <form className="select">
             <select
+              className={styles.select}
               required
               value={select}
               onChange={(e) => {
                 setSelect(e.target.value);
               }}
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled hidden>
                 Order by
               </option>
               <option value="name">Name</option>
@@ -115,7 +107,7 @@ export default function Home({ allComicsData }) {
         </div>
         <div className={styles.container}>
           <GetHero
-            func={handleInputChange}
+            heroSearch={handleInputChange}
             nameWith={inputValue}
             sortBy={select}
           />

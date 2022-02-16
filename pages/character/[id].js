@@ -1,47 +1,38 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import md5 from "md5";
-const publicKey = "ea3f84e8fb89a49e96db6db00d192540";
-const privateKey = "1be47688b8609c33a5f77a6acce22635334ebf58";
+import { useRouter } from "next/router";
+const publicKey = "eca622d4ab963d8f9b56c9f3c38066db";
+const privateKey = "eb16ea813f8b07a4c312fcccb371982f0f636366";
 const ts = Number(new Date());
 const hash = md5(ts + privateKey + publicKey);
-const key = `&apikey=${publicKey}&hash=${hash}&ts=${ts}`;
+const key = `apikey=${publicKey}&hash=${hash}&ts=${ts}`;
 
-export const getStaticPaths = async () => {
-  const res = await fetch(
-    `http://gateway.marvel.com/v1/public/characters?${key}`
-  );
-  const data = await res.json();
+export default function CharacterDetail() {
+  const [characterDetails, setCharacterDetails] = useState([""]);
+  const router = useRouter();
 
-  // map data to an array of path objects with params (id)
-  const paths = data.data.results.map((hero) => {
-    return {
-      params: { id: hero.id.toString() },
-    };
-  });
+  useEffect(() => {
+    const { id } = router.query;
+    console.log(id, "log do id query");
+    if (id) {
+      fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?${key}`)
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response.data, "response.data");
+          setCharacterDetails(response.data.results[0]);
+        })
+        .catch((error) => {
+          console.error(error, "mensagem de erro");
+        });
+    }
+  }, [router.query]);
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const res = await fetch(
-    `http://gateway.marvel.com/v1/public/characters?${key}`
-  );
-  const data = await res.json();
-
-  return {
-    props: { hero: data },
-  };
-};
-
-const Details = ({ hero }) => {
   return (
-    <div>
-      <h1>hello {}</h1>
-    </div>
+    <>
+      <h2>{characterDetails.name}</h2>
+      <h2>id: {characterDetails.id}</h2>
+      <h2>desc: {characterDetails.description}</h2>
+    </>
   );
-};
-
-export default Details;
+}

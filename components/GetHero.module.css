@@ -5,6 +5,7 @@
   overflow: hidden;
   cursor: pointer;
   border: transparent solid;
+  list-style-type: none;
 }
 .container:hover {
   transform: scale(1.05);
@@ -63,12 +64,21 @@
   width: 5rem;
 
   border: transparent solid;
-  margin-left: 45%;
-  margin-right: 45%;
+  margin-left: 35%;
+  margin-right: 35%;
 }
 .button:hover {
   color: black;
   background-color: #e23636;
   border: whitesmoke solid;
   transition: 0.2s;
+}
+
+.loadingMore {
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+.listStyle {
+  list-style-type: none;
 }
