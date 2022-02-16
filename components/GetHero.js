@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import md5 from "md5";
-const publicKey = "ea3f84e8fb89a49e96db6db00d192540";
-const privateKey = "1be47688b8609c33a5f77a6acce22635334ebf58";
+const publicKey = "eca622d4ab963d8f9b56c9f3c38066db";
+const privateKey = "eb16ea813f8b07a4c312fcccb371982f0f636366";
 const ts = Number(new Date());
 const hash = md5(ts + privateKey + publicKey);
 const key = `&apikey=${publicKey}&hash=${hash}&ts=${ts}`;
@@ -32,7 +32,7 @@ function GetHero(props) {
     }
 
     getCharacters();
-  }, [props.func]);
+  }, [props.heroSearch]);
 
   const getMore = useCallback(async () => {
     try {
@@ -60,7 +60,7 @@ function GetHero(props) {
       ) : (
         characters.map((character) => (
           <>
-            <Link href={"/placeholder"}>
+            <Link key={character.id} href={`/character/${character.id}`}>
               <div className={styles.container}>
                 <img
                   src={
@@ -79,7 +79,7 @@ function GetHero(props) {
         ))
       )}
       {loadingMore ? (
-        <h2>Loading More</h2>
+        <h2 className={styles.loadingMore}>Loading More</h2>
       ) : (
         <button className={styles.button} onClick={getMore}>
           <h2>Load More</h2>
