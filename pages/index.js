@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GetHero from "../components/GetHero";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import styles from "../components/index.module.css";
 import AsyncSelect from "react-select/async";
 import Link from "next/link";
@@ -59,13 +60,8 @@ export default function Home({}) {
           url('https://fonts.googleapis.com/css2?family=Voltaire&display=swap');
         </style>
       </Head>
-      <div className={styles.navbar}>
-        <a href="/">
-          <img className={styles.logo} src="/images/marvel-labs.png"></img>
-        </a>
-        <Link href="/sobre">
-          <a className={styles.navlink}>about</a>
-        </Link>
+      <div>
+        <Navbar />
       </div>
       <div className={styles.bigcontainer}>
         <AsyncSelect
