@@ -1,0 +1,13 @@
+.footerItems {
+  display: flex;
+  justify-content: space-around;
+  color: whitesmoke;
+  font-size: 0.7rem;
+}
+@media (max-width: 768px) {
+  .footerItems {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

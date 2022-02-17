@@ -1,0 +1,42 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Voltaire", sans-serif;
+}
+
+.heroBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid white 1px;
+  width: 50vw;
+  font-family: "Voltaire", sans-serif;
+  text-transform: uppercase;
+}
+
+.imgContainer {
+  display: flex;
+}
+.txtContainer {
+  color: whitesmoke;
+  margin-right: 2vw;
+  margin-left: 2vw;
+  max-width: 60%;
+}
+
+.txtContainer p {
+  font-family: "Voltaire", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .heroBanner {
+    flex-direction: column;
+    width: 75vw;
+  }
+  .txtContainer {
+    max-width: 80%;
+
+    font-size: 0.8rem;
+  }
+}

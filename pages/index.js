@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GetHero from "../components/GetHero";
+import Footer from "../components/Footer";
 import styles from "../components/index.module.css";
 import AsyncSelect from "react-select/async";
 import Link from "next/link";
@@ -66,7 +67,6 @@ export default function Home({}) {
           <a className={styles.navlink}>about</a>
         </Link>
       </div>
-
       <div className={styles.bigcontainer}>
         <AsyncSelect
           instanceId={"id"}
@@ -112,7 +112,8 @@ export default function Home({}) {
             sortBy={select}
           />
         </div>
-      </div>
+      </div>{" "}
+      <Footer />
     </div>
   );
 }
