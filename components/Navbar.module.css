@@ -1,0 +1,21 @@
+.logo {
+  height: 40px;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.navlink {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.navlink:hover {
+  color: #e23636;
+}
+.navContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}

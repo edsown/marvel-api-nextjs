@@ -9,21 +9,7 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  margin-left: 0vw;
-  padding-top: 2vw;
-  padding-bottom: 1rem;
 
-  align-items: center;
-}
-.logo {
-  height: 50px;
-}
-.logo:hover {
-  transform: scale(1.05);
-}
 .navlink {
   text-decoration: none;
   color: #64748b;
@@ -69,4 +55,5 @@
 
 .select {
   background-color: rgb(1, 7, 19);
+  font-size: 0.8rem;
 }

@@ -26,6 +26,9 @@
   .text {
     font-size: 0.55rem;
   }
+  .button {
+    padding: 0;
+  }
 }
 .text {
   position: relative;
