@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import md5 from "md5";
-const publicKey = "eca622d4ab963d8f9b56c9f3c38066db";
-const privateKey = "eb16ea813f8b07a4c312fcccb371982f0f636366";
-const ts = Number(new Date());
-const hash = md5(ts + privateKey + publicKey);
-const key = `&apikey=${publicKey}&hash=${hash}&ts=${ts}`;
+import { authKey } from "../services/api";
 import axios from "axios";
 import Link from "next/link";
 import styles from "../components/GetHero.module.css";
@@ -18,7 +13,7 @@ function GetHero(props) {
       try {
         const response = await axios
           .get(
-            `http://gateway.marvel.com/v1/public/characters?${key}&orderBy=${
+            `http://gateway.marvel.com/v1/public/characters?${authKey}&orderBy=${
               props.sortBy
             }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
           )
@@ -39,7 +34,7 @@ function GetHero(props) {
       const offset = characters.length;
       const response = await axios
         .get(
-          `http://gateway.marvel.com/v1/public/characters?${key}&offset=${offset}&orderBy=${
+          `http://gateway.marvel.com/v1/public/characters?${authKey}&offset=${offset}&orderBy=${
             props.sortBy
           }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
         )

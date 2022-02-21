@@ -11,8 +11,8 @@ function Navbar() {
             <img className={styles.logo} src="/images/marvel-labs.png"></img>
           </a>
         </Link>
-        <Link href="/favorites">
-          <a className={styles.navlink}>Favorites</a>
+        <Link href="/about">
+          <a className={styles.navlink}>About</a>
         </Link>
       </div>
     </div>

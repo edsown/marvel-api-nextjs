@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.3",
     "md5": "^2.3.0",

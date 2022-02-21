@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
-import md5 from "md5";
 import { useRouter } from "next/router";
 import HeroDescription from "../../components/HeroDescription";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import Navbar from "../../components/Navbar";
-const publicKey = "eca622d4ab963d8f9b56c9f3c38066db";
-const privateKey = "eb16ea813f8b07a4c312fcccb371982f0f636366";
-const ts = Number(new Date());
-const hash = md5(ts + privateKey + publicKey);
-const key = `apikey=${publicKey}&hash=${hash}&ts=${ts}`;
+import { authKey } from "../services/api";
 
 export default function CharacterDetail() {
   const [characterDetails, setCharacterDetails] = useState([""]);
@@ -19,7 +14,9 @@ export default function CharacterDetail() {
     const { id } = router.query;
     console.log(id, "log do id query");
     if (id) {
-      fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?${key}`)
+      fetch(
+        `https://gateway.marvel.com:443/v1/public/characters/${id}?${authKey}`
+      )
         .then((response) => response.json())
         .then((response) => {
           console.log(response.data, "response.data");

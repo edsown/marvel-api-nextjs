@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../components/HeroDescription.module.css";
 function HeroDescription(props) {
   return (
     <div className={styles.mainContainer}>

@@ -6,12 +6,7 @@ import styles from "../components/index.module.css";
 import AsyncSelect from "react-select/async";
 import Link from "next/link";
 import Head from "next/head";
-import md5 from "md5";
-const publicKey = "eca622d4ab963d8f9b56c9f3c38066db";
-const privateKey = "eb16ea813f8b07a4c312fcccb371982f0f636366";
-const ts = Number(new Date());
-const hash = md5(ts + privateKey + publicKey);
-const key = `&apikey=${publicKey}&hash=${hash}&ts=${ts}`;
+import { authKey } from "../services/api";
 
 export default function Home({}) {
   const [inputValue, setInputValue] = useState("");
@@ -31,7 +26,7 @@ export default function Home({}) {
 
   const handleLoad = (inputValue) =>
     fetch(
-      `http://gateway.marvel.com/v1/public/characters?${key}${
+      `http://gateway.marvel.com/v1/public/characters?${authKey}${
         inputValue == "" ? "" : "&nameStartsWith=" + inputValue
       }`
     )
