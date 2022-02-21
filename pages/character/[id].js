@@ -4,7 +4,7 @@ import HeroDescription from "../../components/HeroDescription";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import Navbar from "../../components/Navbar";
-import { authKey } from "../services/api";
+import { authKey } from "../../services/api";
 
 export default function CharacterDetail() {
   const [characterDetails, setCharacterDetails] = useState([""]);
