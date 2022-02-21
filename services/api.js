@@ -1,7 +1,7 @@
 import axios from "axios";
 import md5 from "md5";
-const publicKey = process.env.PUB_KEY;
-const privateKey = process.env.PRIV_KEY;
+const publicKey = process.env.NEXT_PUBLIC_PUB_KEY;
+const privateKey = process.env.NEXT_PUBLIC_PRIV_KEY;
 
 const time = Number(new Date());
 
