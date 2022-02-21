@@ -26,7 +26,7 @@ export default function Home({}) {
 
   const handleLoad = (inputValue) =>
     fetch(
-      `http://gateway.marvel.com/v1/public/characters?${authKey}${
+      `https://gateway.marvel.com/v1/public/characters?${authKey}${
         inputValue == "" ? "" : "&nameStartsWith=" + inputValue
       }`
     )

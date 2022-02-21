@@ -13,7 +13,7 @@ function GetHero(props) {
       try {
         const response = await axios
           .get(
-            `http://gateway.marvel.com/v1/public/characters?${authKey}&orderBy=${
+            `https://gateway.marvel.com/v1/public/characters?${authKey}&orderBy=${
               props.sortBy
             }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
           )
@@ -34,7 +34,7 @@ function GetHero(props) {
       const offset = characters.length;
       const response = await axios
         .get(
-          `http://gateway.marvel.com/v1/public/characters?${authKey}&offset=${offset}&orderBy=${
+          `https://gateway.marvel.com/v1/public/characters?${authKey}&offset=${offset}&orderBy=${
             props.sortBy
           }${props.nameWith == "" ? "" : "&nameStartsWith=" + props.nameWith}`
         )
@@ -60,7 +60,7 @@ function GetHero(props) {
                 <img
                   src={
                     character.thumbnail.path !==
-                    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+                    "https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
                       ? `${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`
                       : "/images/marvel-cover.jpg" // Se não tiver capa, colocar capa personalizada que eu fiz
                   }
